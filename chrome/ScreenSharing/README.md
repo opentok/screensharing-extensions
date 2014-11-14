@@ -26,46 +26,37 @@ This is a variation of [the extension][mkext] created by [Muaz Khan][mkgh] with 
 
 After installing the extension (either locally, or after publishing through the Chrome Web Store), get the extension ID from `chrome://extensions` (it looks like `ffngmcfincpecmcgfdpacbdbdlfeeokh`).
 
-Include the OTChromeScreenSharingExtensionHelper.js file (found in the extension) in your website - you'll can't load it directly from the extension.
-
 ```html
-<script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
-<script src="OTChromeScreenSharingExtensionHelper.js"></script>
+<script src="//static.opentok.com/webrtc/v2.3/js/opentok.min.js"></script>
 ```
 
-Create a OTChromeScreenSharingExtensionHelper object:
+Register you extension:
 
 ```javascript
-var screenSharing = OTChromeScreenSharingExtensionHelper('YOUR-EXTENSION-ID');
+
+OT.registerScreenSharingExtension('chrome', 'YOUR-EXTENSION-ID');
+
 ```
 
 To test if the extension is available you can use the `isAvailable` method:
 
 ```javascript
-screenSharing.isAvailable(function(extensionIsAvailable) {
-    if(extensionIsAvailable) {
-        // prompt the user to share their screen!
-    } else {
-        // prompt the user to install - see the publish your app & install inline links above.
-    }
+
+OT.checkScreenSharingCapability(function(response) {
+  if(!response.supported || response.extensionRegistered === false) {
+    // This browser does not support screen sharing
+  } else if(response.extensionInstalled === false) {
+    // prompt to install the response.extensionRequired extension
+  } else {
+    // Screen sharing is available
+  }
 });
+
 ```
 
 If you are using [Inline Installation][inline] their are additional APIs you can use.
 
-To have the user pick the screen or window to share use:
-
-```javascript
-screenSharing.getVideoSource(function(error, source) {
-    if (error) {
-        // either the extension is not available or the user clicked cancel
-    } else {
-        // pass `source` to OT.initPublisher().
-    }
-});
-```
-
-To publish using that source:
+To publish a screen:
 
 ```javascript
 var el = document.createElement('div');
@@ -74,8 +65,8 @@ OT.initPublisher(el, {
     name: 'Screen',
     mirror: false,
     audioSource: null,
-    videoSource: source, // from getVideoSource
-    maxResolution: '1280x720', // max resolution to encode screen in
+    videoSource: 'screen',
+    maxResolution: { width: 1280, height: 720 }, // max resolution to encode screen in
     width: 1280, // width of preview
     height: 720, // height of preview
 }, function(error) {
