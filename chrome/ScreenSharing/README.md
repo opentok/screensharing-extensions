@@ -79,17 +79,6 @@ OT.initPublisher(el, {
 })
 ```
 
-## How to test on HTTP?
-
-Enable a command-line switch on chrome canary:
-
-```
---allow-http-screen-capture
-```
-
-Ref: [http://kurtextrem.github.io/ChromiumFlags/#allow-http-screen-capture][kgh]
-[kgh]: http://kurtextrem.github.io/ChromiumFlags/#allow-http-screen-capture
-
 ## Browser Support
 
 Google Chrome (version 34+) only.
