@@ -1,9 +1,9 @@
 Screen Sharing Extension for Chrome
 ===================================
 
-This extension allows you to use the Screen Sharing support in Chrome with the [OpenTok.js][ot] client library.
+This extension allows you to use the screen sharing support in Chrome with the [OpenTok.js][ot] client library.
 
-You should fork (or simply download) this repo, modify `manifest.json` (change name, author, and ensure `matches` is set to your own domains only) and then publish on the Google App Store.
+You should fork (or simply download) this repo, modify `manifest.json` (change name, author, and ensure `matches` is set to your own domains only) and then publish on the Chrome Web Store.
 
 Useful information:
 
@@ -85,4 +85,4 @@ Google Chrome (version 34+) only.
 
 ## License
 
-TBD
+Released under the [MIT license](http://opensource.org/licenses/MIT).
