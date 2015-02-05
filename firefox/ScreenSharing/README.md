@@ -11,42 +11,51 @@ You should fork (or simply download) this repo, and modify the following files:
 
    See the Mozilla [Install manifest documentation][install-manifests].
 
-2. Edit the bootstrap.js file. ensure `matches` is set to your own domains only. Set the
-   `gDomain` property to match the domain(s) to support your screen-sharing extension.
+2. Edit the bootstrap.js file. Set the `gDomain` property to match the domain(s)
+   your screen-sharing extension supports.
 
 3. Package the extension:
 
-     zip my-screensharing-extension.xpi install.rdf bootstrap.js
+        zip my-screensharing-extension.xpi install.rdf bootstrap.js
 
    Zipping up these two files is an easy way to create the extension (xpi) file. You can also use
    the [Mozilla Add-on SDK][add-on-sdk] to create the extension.
 
-4. You can quickly install your extension by dragging it onto a browser window in Firefox.
+4. Install your extension, in one of these ways:
 
-   You can also navigate to `about:addons`, click the settings button, and select
-   "Install add-on from file".
+   * Drag the file it onto a browser window in Firefox. You can also navigate to
+     `about:addons`, click the settings button, and select "Install add-on from file".
 
-You can publish your extension to the [Mozilla add-on site][add-ons].
+   * Add a link to the file in a web page (such as the page that uses OpenTok screen-sharing).
+
+     ```
+      <a href="my-screensharing-extension.xpi">Install extension</a><br>
+     ```
+
+     Clicking the link installs the extension.
+
+   * Publish your extension to the [Mozilla add-on site][add-ons].
 
 Useful information:
 
-* [Bootstrapped extensions][bootstrapped-extensions] Mozilla documentation on developing extensions
+* [Bootstrapped extensions][bootstrapped-extensions] -- Mozilla documentation on developing extensions
    for Firefox
 
-* [Developer hub][mozilla-add-on-hub] The Mozilla developer hub for add-ons.
+* [Developer hub][mozilla-add-on-hub] -- The Mozilla developer hub for add-ons.
 
-* [add-on-sdk][add-on-sdk] Mozilla add-on SDK documentation.
+* [add-on-sdk][add-on-sdk] -- Mozilla add-on SDK documentation.
 
 [ot]: http://tokbox.com/opentok/libraries/client/js/
 [install-manifests]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests
-[add-on-sdk]: [https://addons.mozilla.org/en-US/developers/docs/sdk/latest]
+[add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
 [add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
 [bootstrapped-extensions]: https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions
 [mozilla-add-on-hub]: https://addons.mozilla.org/en-US/developers/
 
-## How to use with OpenTok.js?
+## Using the extension with OpenTok.js
 
-To test if the extension is available you can use the `isAvailable` method:
+To check if the extension is available, call the `OT.checkScreenSharingCapability()` method
+(available in the ):
 
 ```javascript
 OT.checkScreenSharingCapability(function(response) {
@@ -77,10 +86,6 @@ var publisher = OT.initPublisher('target-element-id', {
   pub.element.style.height = pub.videoHeight() + 'px';
 });
 ```
-
-## Browser Support
-
-Google Chrome (version 34+) only.
 
 ## License
 

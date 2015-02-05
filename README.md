@@ -6,8 +6,8 @@ These extensions allow you to use screen-sharing support in Chrome and Firefox w
 library. For more information, see:
 
 * The [OpenTok documentation on screen sharing][2]
-* The [chrome/ScreenSharing/README.md][3] file in this repo
-* The [firefox/ScreenSharing/README.md][4] file in this repo
+* The README.md file for the [Chrome screen-sharing extension sample][3] in this repo
+* The README.md file for the [Firefox screen-sharing extension sample][4] in this repo
 
 [1]: https://tokbox.com/opentok
 [2]: https://tokbox.com/opentok/tutorials/screen-sharing/js/
