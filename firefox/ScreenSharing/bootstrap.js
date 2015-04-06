@@ -13,7 +13,7 @@ function startup(aData, aReason) {
   if (curPref.contains(gDomain)) {
     return;
   }
-  prefs.setCharPref(allowDomainsPrefKey, curPref + ', ' + gDomain);
+  prefs.setCharPref(allowDomainsPrefKey, curPref + ',' + gDomain);
 }
 
 function shutdown(aData, aReason) {
