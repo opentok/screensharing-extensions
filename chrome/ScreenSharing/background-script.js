@@ -13,12 +13,11 @@ function getSourceID(sender, callback) {
   tab.url = sender.url;
   chrome.desktopCapture.chooseDesktopMedia(session, tab, function(sourceId) {
     // "sourceId" will be empty if permission is denied
-    if(!sourceId || !sourceId.length) {
+    if (!sourceId || !sourceId.length) {
       callback({ error: 'permissionDenied' });
+      return;
     }
 
-    // "ok" button is clicked
-    console.log('ok button clicked', callback);
     callback({ sourceId: sourceId });
   });
 }
