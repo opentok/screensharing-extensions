@@ -88,7 +88,7 @@ Register you extension:
 
 ```javascript
 
-OT.registerScreenSharingExtension('chrome', 'YOUR-EXTENSION-ID');
+OT.registerScreenSharingExtension('chrome', 'YOUR-EXTENSION-ID', 2);
 
 ```
 

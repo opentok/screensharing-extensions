@@ -1,7 +1,7 @@
 {
   "name" : "OpenTok Screen Sharing",
   "author": "TokBox, Inc.",
-  "version" : "1.0",
+  "version" : "2.0",
   "manifest_version" : 2,
   "minimum_chrome_version": "34",
   "description" : "This Chrome extension is developed primary for http://tokbox.com/. It doesn't do anything except capture content of your screen.",
@@ -10,11 +10,11 @@
     "scripts": ["background-script.js"],
     "persistent": false
   },
-  "content_scripts": [ {
-   "js": [ "content-script.js" ],
-   "all_frames": true,
-   "matches": ["https://*.change-this-to-your-domain.com/*"]
-  }],
+  "externally_connectable": {
+    "matches": [
+      "https://*.change-this-to-your-domain.com/*"
+    ]
+  },
   "icons": {
     "16": "logo16.png",
     "48": "logo48.png",
