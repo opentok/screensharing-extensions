@@ -29,6 +29,8 @@ chrome.runtime.onMessageExternal.addListener(function (message, sender, callback
     return true;
   } else if (message.type === 'isInstalled') {
     callback(true);
+  } else if (message.type === 'apiVersion') {
+    callback(2);
   } else {
     callback({ error: 'unsupportedMessage', type: message.type });
   }
