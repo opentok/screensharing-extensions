@@ -43,7 +43,7 @@
 
     // For Google Chrome only, register your extension by ID,
     // You can find it at chrome://extensions once the extension is installed
-    OT.registerScreenSharingExtension('chrome', extensionId);
+    OT.registerScreenSharingExtension('chrome', extensionId, 2);
 
     function screenshare() {
       OT.checkScreenSharingCapability(function(response) {
