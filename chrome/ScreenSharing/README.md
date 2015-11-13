@@ -5,6 +5,8 @@ This extension allows you to use the screen sharing support in Chrome with the [
 
 This is a variation of [the extension][mkext] created by [Muaz Khan][mkgh] with some tweaks to make it more suitable for use with the OpenTok API.
 
+This is version 2 of the extension. With version 2, the client can use the extension immediately after installing it using the inline installation method, without reloading the page. When calling the `OT.registerScreenSharingExtension()` method (see below), you must now pass in the version number, 2.
+
 ## Customizing the extension for your website
 
 1. Fork (or simply download) this github repo.
