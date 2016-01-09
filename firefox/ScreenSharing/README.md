@@ -9,7 +9,15 @@ This extension allows you to use the screen-sharing support in Firefox with the 
 
 2. Edit the `install.rdf` file
 
-   Change the following fields: `id`, `name`, `version`, and `creator` properties.
+   Change the values for following fields:
+
+   * `id` -- The unique ID for the extension. See [this documentation][intall-manifests-id].
+   * `name` -- The name of the extension, to be displayed in the Firefox UI.
+   * `version` -- The version.
+   * `creator` -- The name of the creator, to be displayed in the Firefox UI.
+   * `targetApplication:maxVersion` -- Change this to the latest Firefox version listed on
+     [this page][app-versions]. Note that Firefox will automatically perform
+     [compatibility updates][compatibility-updates] for your extension.
 
    See the Mozilla [Install manifest documentation][install-manifests].
 
@@ -24,6 +32,11 @@ This extension allows you to use the screen-sharing support in Firefox with the 
 
    Zipping up these two files is an easy way to create the extension (xpi) file. You can also use
    the [Mozilla Add-on SDK][add-on-sdk] to create the extension.
+
+5. Firefox now requires that extensions be signed. For more information, see
+   [this page on extension signing at mozilla.org][extension-signing]. However, you can test an
+   unsigned extension in the Developer Edition and Nightly versions of Firefox (see the next
+   section).
 
 ## Installing your extension
 
@@ -41,6 +54,13 @@ Install your extension in one of these ways:
      Clicking the link installs the extension.
 
    * Publish your extension to the [Mozilla add-on site][add-ons].
+
+Firefox now requires that extensions be signed. However, for testing the Developer Edition
+and Nightly versions of Firefox include a setting to disable signature enforcement:
+
+* Load the `about:config` page in Firefox.
+* In the Search box, type `xpinstall.signatures.required`.
+* Double-click the preference to set the value to `false`.
 
 ## Testing your extension
 
@@ -80,24 +100,16 @@ Install your extension in one of these ways:
 
 [ot]: http://tokbox.com/opentok/libraries/client/js/
 [install-manifests]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests
+[install-manifests-id]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests#id
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
+[app-versions]: https://addons.mozilla.org/en-US/firefox/pages/appversions/
 [add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
 [bootstrapped-extensions]: https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions
 [mozilla-add-on-hub]: https://addons.mozilla.org/en-US/developers/
+[compatibility-updates]: https://developer.mozilla.org/en-US/docs/Extension_Versioning,_Update_and_Compatibility#Compatibility_Updates
+[extension-signing]: https://wiki.mozilla.org/Add-ons/Extension_Signing
 
 ## Using the extension with OpenTok.js
-
-To check if the extension is available, call the `OT.checkScreenSharingCapability()` method:
-
-```javascript
-OT.checkScreenSharingCapability(function(response) {
-  if(response.supported) {
-    // Screen sharing is available
-  } {
-    // This browser does not support screen sharing
-  }
-});
-```
 
 To publish a screen:
 
