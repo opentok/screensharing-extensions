@@ -3,6 +3,11 @@ Screen Sharing Extension for Firefox
 
 This extension allows you to use the screen-sharing support in Firefox with the [OpenTok.js][ot] client library.
 
+Note: Instead of using a Firefox extension for screen sharing, you can have Mozilla add your domain
+to the browser's screen-sharing whitelist. See [this Mozilla.org page][whitelist] for details.
+Note that it can take a number of weeks for Mozilla to approve your domain's inclusion in
+the screen-sharing whitelist and include it in a shipping version of Firefox.
+
 ## Customizing the extension for your website
 
 1. Fork (or simply download) this repo.
@@ -70,7 +75,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
 
 2. Edit the following values in the file:
 
-   * `apiKey` -- See this to your OpenTok API key. See https://dashboard.tokbox.com
+   * `apiKey` -- Set this to your OpenTok API key. See https://dashboard.tokbox.com
    * `sessionId` -- An OpenTok session ID
    * `token` -- A valid token for the OpenTok session
 
@@ -83,7 +88,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
    as the video source. Click the **Share your screen** button to publish a screen-sharing
    stream.
 
-4. Open a new Firefox window or tab and navigate to the HTTP screensharing-test.html URL.
+4. Open a new Firefox window or tab and navigate to the HTTPS screensharing-test.html URL.
 
    Upon connecting to the OpenTok session, the app publishes a stream using the camera
    as the video source. It also subscribes to the two streams published by the other page
@@ -99,6 +104,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
 * [add-on-sdk][add-on-sdk] -- Mozilla add-on SDK documentation.
 
 [ot]: http://tokbox.com/opentok/libraries/client/js/
+[whitelist]: https://wiki.mozilla.org/Screensharing
 [install-manifests]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests
 [install-manifests-id]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests#id
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
