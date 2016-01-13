@@ -26,20 +26,43 @@ See the following sections for testing and deploying your extension.
 [mkgh]: https://github.com/muaz-khan
 [manifest]: https://developer.chrome.com/extensions/manifest
 
-## Testing your extension
+## Testing your unpacked extension
 
-See the [Chrome extension documentation on loading and unpacked extension][load-unpacked].
-
-In your app, you need to register the ID of the extension using the
-<code>OT.registerScreenSharingExtension()</code> method (defined in the OpenTok.js library).
+Follow the instructions in the [Chrome extension documentation on loading and unpacked
+extensions][load-unpacked].
 
 [load-unpacked]: https://developer.chrome.com/extensions/getstarted#unpacked
+
+1. Locate the screensharing-test.html file in the root of this repo. Copy the file to a
+   web server. (Screen-sharing access requires that the file be installed on a web server.
+   You cannot load the file from a file: URL.)
+
+2. Edit the following values in the file:
+
+   * `apiKey` -- Set this to your OpenTok API key. See https://dashboard.tokbox.com
+   * `sessionId` -- An OpenTok session ID
+   * `token` -- A valid token for the OpenTok session
+   * `extensionId` -- The ID of your screen-sharing extension. You can get the ID
+     of the extension in the chrome://extensions page. (It looks like
+     `ffngmcfincpecmcgfdpacbdbdlfeeokh`.)
+
+3. In Chrome, navigate to the screensharing-test.html URL on your server. Be sure to load
+   the page via HTTPS. (Screen-sharing requires HTTPS.)
+
+   Upon connecting to the OpenTok session, the app publishes a stream using the camera
+   as the video source. Click the **Share your screen** button to publish a screen-sharing
+   stream.
+
+4. Open a new Chrome window or tab and navigate to the HTTPS screensharing-test.html URL.
+
+   Upon connecting to the OpenTok session, the app publishes a stream using the camera
+   as the video source. It also subscribes to the two streams published by the other page
+   (the camera stream and the screen-sharing stream).
 
 ## Packaging and deploying your extension for use at your website
 
 For your production website, you need to package your screen-sharing extension and register it
 in the Chrome Web Store.
-
 
 See the [Chrome documentation on publishing your app][publish] for details on publishing your extension in the Chrome Web Store.
 
@@ -48,35 +71,10 @@ You can use the [Chrome inline installation][inline] to initiate installation of
 
 In your app, you need to register the ID of the extension using the
 <code>OT.registerScreenSharingExtension()</code> method (defined in the OpenTok.js library).
+(See the next section and the code in the screensharing-test.html file in this repo.)
 
 [publish]: https://developer.chrome.com/webstore/publish
 [inline]: https://developer.chrome.com/webstore/inline_installation
-
-## Testing your extension
-
-1. Locate the screensharing-test.html file in the root of this repo. Copy the file to a
-   web server. (Screen-sharing access requires that the file be installed on a web server.
-   You cannot load the file from a file: URL.)
-
-2. Edit the following values in the file:
-
-   * `apiKey` -- See this to your OpenTok API key. See https://dashboard.tokbox.com
-   * `sessionId` -- An OpenTok session ID
-   * `token` -- A valid token for the OpenTok session
-   * `extensionId` -- The ID of your screen-sharing extension (see the previous two sections)
-
-3. In Firefox, navigate to the screensharing-test.html URL on your server. Be sure to load
-   the page via HTTPS. (Screen-sharing requires HTTPS.)
-
-   Upon connecting to the OpenTok session, the app publishes a stream using the camera
-   as the video source. Click the **Share your screen** button to publish a screen-sharing
-   stream.
-
-4. Open a new Firefox window or tab and navigate to the HTTP screensharing-test.html URL.
-
-   Upon connecting to the OpenTok session, the app publishes a stream using the camera
-   as the video source. It also subscribes to the two streams published by the other page
-   (the camera stream and the screen-sharing stream).
 
 ## How to use with OpenTok.js?
 

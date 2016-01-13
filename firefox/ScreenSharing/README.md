@@ -75,7 +75,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
 
 2. Edit the following values in the file:
 
-   * `apiKey` -- See this to your OpenTok API key. See https://dashboard.tokbox.com
+   * `apiKey` -- Set this to your OpenTok API key. See https://dashboard.tokbox.com
    * `sessionId` -- An OpenTok session ID
    * `token` -- A valid token for the OpenTok session
 
@@ -88,7 +88,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
    as the video source. Click the **Share your screen** button to publish a screen-sharing
    stream.
 
-4. Open a new Firefox window or tab and navigate to the HTTP screensharing-test.html URL.
+4. Open a new Firefox window or tab and navigate to the HTTPS screensharing-test.html URL.
 
    Upon connecting to the OpenTok session, the app publishes a stream using the camera
    as the video source. It also subscribes to the two streams published by the other page
