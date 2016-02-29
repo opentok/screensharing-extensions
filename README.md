@@ -12,4 +12,4 @@ library. For more information, see:
 [1]: https://tokbox.com/opentok
 [2]: https://tokbox.com/opentok/tutorials/screen-sharing/js/
 [3]: chrome/ScreenSharing/README.md
-[4]: firefox/ScreenSharing/README.md
+[4]: firefox/README.md

@@ -6,16 +6,16 @@
   <div id="screen-subscriber"></div>
   <script src="//static.opentok.com/v2/js/opentok.js"></script>
   <script type="text/javascript">
-    
+
     // Go to https://dashboard.tokbox.com/ to get your OpenTok API Key and to generate
     // a test session ID and token:
-    var apiKey    = '<YOUR_API_KEY>',
-      sessionId = '<YOUR_SESSION_ID>',
-      token     = '<YOUR_TOKEN>';
+    var apiKey    = '472032',
+      sessionId = '2_MX40NzIwMzJ-fjE0NTY2MzEyNDYzMDJ-b2JTY0lzbVBUNFdreFJCVUJLcGljVVVtflB-',
+      token     = 'T1==cGFydG5lcl9pZD00NzIwMzImc2lnPTEwMTI3MjMwNjgwODAyOWE3MzQ3MWUwMzFjMGEyZThlNDdiYmNmM2M6cm9sZT1wdWJsaXNoZXImc2Vzc2lvbl9pZD0yX01YNDBOekl3TXpKLWZqRTBOVFkyTXpFeU5EWXpNREotYjJKVFkwbHpiVkJVTkZkcmVGSkNWVUpMY0dsalZWVnRmbEItJmNyZWF0ZV90aW1lPTE0NTY2MzEyNTImbm9uY2U9MC44NzIzMjE0NDkzODE4MTQ2JmV4cGlyZV90aW1lPTE0NTkyMjMyMzUmY29ubmVjdGlvbl9kYXRhPQ==';
 
     // Replace this with the ID for your Chrome screen-sharing extension, which you can
     // get at chrome://extensions/:
-    
+
     var extensionId = '<YOUR_CHROME_EXTENSION_ID>';
 
     var session = OT.initSession(apiKey, sessionId);
@@ -29,7 +29,7 @@
 
     session.on('streamCreated', function(event) {
       if (event.stream.videoType === 'screen') {
-        // This is a screen-sharing stream published by another client 
+        // This is a screen-sharing stream published by another client
         var subOptions = {
           width: event.stream.videoDimensions.width / 2,
           height: event.stream.videoDimensions.height /2
