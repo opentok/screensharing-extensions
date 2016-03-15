@@ -8,6 +8,10 @@ to the browser's screen-sharing whitelist. See [this Mozilla.org page][whitelist
 Note that it can take a number of weeks for Mozilla to approve your domain's inclusion in
 the screen-sharing whitelist and include it in a shipping version of Firefox.
 
+This is version 2 of the extension. With version 2, the `extensionsInstalled` property of the object passed into callback method of the
+`OT.registerScreenSharingExtension()` method is set to `true` when the extension is installed and set to work in your site's domain.
+OpenTok 2.8.0 or later is required for this version of the extension.
+
 ## Prerequisites for building your extension
 
 To build your screen-sharing extension for Firefox, you need to [install Node and Node Package Manager][npm] (npm). Then use npm to install the jpm package:
