@@ -1,5 +1,5 @@
 var pageMod = require("sdk/page-mod");
-var gDomains = ['*.ngrok.io'];
+var gDomains = ['*.example.com'];
 //var {Cc, Ci, Cu} = require("chrome");
 
 var allowDomainsPrefKey = 'media.getusermedia.screensharing.allowed_domains';

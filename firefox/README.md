@@ -10,13 +10,9 @@ the screen-sharing whitelist and include it in a shipping version of Firefox.
 
 ## Prerequisites for building your extension
 
-To build your screen-sharing extension for Firefox, you need to install Node Package Manager (npm) and the jpm Node library.
+To build your screen-sharing extension for Firefox, you need to [install Node and Node Package Manager][npm] (npm). Then use npm to install the jpm package:
 
-Then, navigate to the ScreenSharing subdirectory, and run the following:
-
-`./node_modules/jpm xpi`
-
-This generates the screen-sharing extension.
+    npm install jpm
 
 ## Customizing the extension for your website
 
@@ -110,6 +106,7 @@ Install your extension in one of these ways:
 
 [ot]: http://tokbox.com/opentok/libraries/client/js/
 [whitelist]: https://wiki.mozilla.org/Screensharing
+[npm]: https://nodejs.org/en/download/
 [package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
 [package-json-id]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json#id
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
