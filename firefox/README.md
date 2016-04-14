@@ -14,15 +14,17 @@ OpenTok 2.8.0 or later is required for this version of the extension.
 
 ## Prerequisites for building your extension
 
-To build your screen-sharing extension for Firefox, you need to [install Node and Node Package Manager][npm] (npm). Then use npm to install the jpm package:
+To build your screen-sharing extension for Firefox, you need to [install Node and Node Package
+Manager][npm] (npm). Then use npm to install the [jpm](jpm) package. In a command-line terminal,
+enter the following:
 
-    npm install jpm
+    npm install jpm --global
 
 ## Customizing the extension for your website
 
 1. Fork (or simply download) this repo.
 
-2. Edit the `package.json` file
+2. Edit the `package.json` file in the firefox/ScreenSharing directory.
 
    Change the values for following fields:
 
@@ -38,10 +40,10 @@ To build your screen-sharing extension for Firefox, you need to [install Node an
 3. Edit the index.js file. Set the `gDomain` property to match the domain(s)
    your screen-sharing extension supports.
 
-4. Package the extension by running the following on the
-   command line:
+4. In the terminal, navigate to the firefox/ScreenSharing directory. Then package the extension
+   by running the following on the command line:
 
-         ./node_modules/.bin/jpm xpi
+         jpm xpi
 
 5. Firefox now requires that extensions be signed. For more information, see
    [this page on extension signing at mozilla.org][extension-signing]. However, you can test an
@@ -111,6 +113,7 @@ Install your extension in one of these ways:
 [ot]: http://tokbox.com/opentok/libraries/client/js/
 [whitelist]: https://wiki.mozilla.org/Screensharing
 [npm]: https://nodejs.org/en/download/
+[jpm]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
 [package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
 [package-json-id]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json#id
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
