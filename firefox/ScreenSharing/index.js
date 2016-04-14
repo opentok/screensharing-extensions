@@ -1,21 +1,15 @@
-var pageMod = require("sdk/page-mod");
-var gDomains = ['*.example.com'];
-//var {Cc, Ci, Cu} = require("chrome");
-
+var pageMod = require('sdk/page-mod');
+var prefsService = require('sdk/preferences/service');
 var allowDomainsPrefKey = 'media.getusermedia.screensharing.allowed_domains';
-var prefsService = require("sdk/preferences/service")
+var gDomains = ['*.example.com'];
 
-exports.main = function (options, callbacks) {
+exports.main = function (options) {
 
   if (options.loadReason === 'install' || 'enable') {
-    var allowDomainsPrefKey = 'media.getusermedia.screensharing.allowed_domains';
-
     var curPref = prefsService.get(allowDomainsPrefKey);
 
-    var gDomains = ['*.ngrok.io'];
     gDomains.forEach(function(domain){
-      //var curPref = prefs.getCharPref(allowDomainsPrefKey);
-      if (curPref.contains(domain)) {
+      if (curPref.indexOf(domain) !== -1) {
         return;
       }
       prefsService.set(allowDomainsPrefKey, curPref + ',' + domain);
@@ -25,7 +19,6 @@ exports.main = function (options, callbacks) {
 
 exports.onUnload = function (reason) {
   if (reason === 'uninstall' || 'disable') {
-    var gDomains = ['*.ngrok.io'];
     gDomains.forEach(function(domain){
       var curPref = prefsService.get(allowDomainsPrefKey);
       var newPref = curPref.split(',').filter((pref) => pref.trim() != domain).join(',');

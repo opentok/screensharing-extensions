@@ -1,8 +1,8 @@
 {
-  "title": "My Jetpack Addon",
+  "title": "Screen-sharing extension",
   "name": "my-addon",
   "version": "0.0.1",
-  "description": "A basic add-on",
+  "description": "A screen-sharing extension",
   "main": "index.js",
   "author": "",
   "engines": {
