@@ -27,6 +27,10 @@
     var session = OT.initSession(apiKey, sessionId);
 
     session.connect(token, function(error) {
+      if (error) {
+        alert('Error connecting to session: ' + error.message);
+        return;
+      }
       // publish a stream using the camera and microphone:
       var publisher = OT.initPublisher('camera-publisher');
       session.publish(publisher);
