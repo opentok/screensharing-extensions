@@ -6,14 +6,15 @@ var gDomains = ['*.example.com'];
 exports.main = function (options) {
 
   if (options.loadReason === 'install' || 'enable') {
-    var curPref = prefsService.get(allowDomainsPrefKey);
+    var curPrefs = prefsService.get(allowDomainsPrefKey).replace(/\s/g, '').split(',');
 
     gDomains.forEach(function(domain){
-      if (curPref.indexOf(domain) !== -1) {
+      if (curPrefs.indexOf(domain) !== -1) {
         return;
       }
-      prefsService.set(allowDomainsPrefKey, curPref + ',' + domain);
+      curPrefs.push(domain);
     });
+    prefsService.set(allowDomainsPrefKey, curPrefs.join(','));
   }
 };
 
