@@ -8,35 +8,42 @@ to the browser's screen-sharing whitelist. See [this Mozilla.org page][whitelist
 Note that it can take a number of weeks for Mozilla to approve your domain's inclusion in
 the screen-sharing whitelist and include it in a shipping version of Firefox.
 
+This is version 2 of the extension. With version 2, the `extensionsInstalled` property of the object passed into callback method of the
+`OT.registerScreenSharingExtension()` method is set to `true` when the extension is installed and set to work in your site's domain.
+OpenTok 2.8.0 or later is required for this version of the extension.
+
+## Prerequisites for building your extension
+
+To build your screen-sharing extension for Firefox, you need to [install Node and Node Package
+Manager][npm] (npm). Then use npm to install the [jpm](jpm) package. In a command-line terminal,
+enter the following:
+
+    npm install jpm --global
+
 ## Customizing the extension for your website
 
 1. Fork (or simply download) this repo.
 
-2. Edit the `install.rdf` file
+2. Edit the `package.json` file in the firefox/ScreenSharing directory.
 
    Change the values for following fields:
 
-   * `id` -- The unique ID for the extension. See [this documentation][intall-manifests-id].
-   * `name` -- The name of the extension, to be displayed in the Firefox UI.
+   * `id` -- The unique ID for the extension. See [this documentation][package-json-id].
+   * `title` -- The name of the extension, to be displayed in the Firefox UI.
+   * `description` -- The description of the extension, to be displayed in the
+     Firefox UI.
    * `version` -- The version.
    * `creator` -- The name of the creator, to be displayed in the Firefox UI.
-   * `targetApplication:maxVersion` -- Change this to the latest Firefox version listed on
-     [this page][app-versions]. Note that Firefox will automatically perform
-     [compatibility updates][compatibility-updates] for your extension.
 
-   See the Mozilla [Install manifest documentation][install-manifests].
+   See the Mozilla [Add-on package.json documenation][package-json].
 
-3. Edit the bootstrap.js file. Set the `gDomain` property to match the domain(s)
+3. Edit the index.js file. Set the `gDomain` property to match the domain(s)
    your screen-sharing extension supports.
 
-4. Package the extension by creating a zip file that contains the install.rdf and bootstrap.js
-   files, with the file extension changed from zip to xpi. You can run the following on the
-   command line:
+4. In the terminal, navigate to the firefox/ScreenSharing directory. Then package the extension
+   by running the following on the command line:
 
-        zip my-screensharing-extension.xpi install.rdf bootstrap.js
-
-   Zipping up these two files is an easy way to create the extension (xpi) file. You can also use
-   the [Mozilla Add-on SDK][add-on-sdk] to create the extension.
+         jpm xpi
 
 5. Firefox now requires that extensions be signed. For more information, see
    [this page on extension signing at mozilla.org][extension-signing]. However, you can test an
@@ -44,6 +51,13 @@ the screen-sharing whitelist and include it in a shipping version of Firefox.
    section).
 
 ## Installing your extension
+
+Firefox now requires that extensions be signed. However, for testing the Developer Edition
+and Nightly versions of Firefox include a setting to disable signature enforcement:
+
+* Load the `about:config` page in Firefox.
+* In the Search box, type `xpinstall.signatures.required`.
+* Double-click the preference to set the value to `false`.
 
 Install your extension in one of these ways:
 
@@ -59,13 +73,6 @@ Install your extension in one of these ways:
      Clicking the link installs the extension.
 
    * Publish your extension to the [Mozilla add-on site][add-ons].
-
-Firefox now requires that extensions be signed. However, for testing the Developer Edition
-and Nightly versions of Firefox include a setting to disable signature enforcement:
-
-* Load the `about:config` page in Firefox.
-* In the Search box, type `xpinstall.signatures.required`.
-* Double-click the preference to set the value to `false`.
 
 ## Testing your extension
 
@@ -96,7 +103,7 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
 
 ## Useful information:
 
-* [Bootstrapped extensions][bootstrapped-extensions] -- Mozilla documentation on developing extensions
+* [Mozilla Add-on SDK][add-on-sdk] -- Mozilla documentation on developing add-ons
    for Firefox
 
 * [Developer hub][mozilla-add-on-hub] -- The Mozilla developer hub for add-ons.
@@ -105,14 +112,14 @@ and Nightly versions of Firefox include a setting to disable signature enforceme
 
 [ot]: http://tokbox.com/opentok/libraries/client/js/
 [whitelist]: https://wiki.mozilla.org/Screensharing
-[install-manifests]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests
-[install-manifests-id]: https://developer.mozilla.org/en-US/Add-ons/Install_Manifests#id
+[npm]: https://nodejs.org/en/download/
+[jpm]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+[package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
+[package-json-id]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json#id
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
-[app-versions]: https://addons.mozilla.org/en-US/firefox/pages/appversions/
 [add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
-[bootstrapped-extensions]: https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions
+[add-on-sdk]: https://developer.mozilla.org/en-US/Add-ons/SDK
 [mozilla-add-on-hub]: https://addons.mozilla.org/en-US/developers/
-[compatibility-updates]: https://developer.mozilla.org/en-US/docs/Extension_Versioning,_Update_and_Compatibility#Compatibility_Updates
 [extension-signing]: https://wiki.mozilla.org/Add-ons/Extension_Signing
 
 ## Using the extension with OpenTok.js
