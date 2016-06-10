@@ -28,17 +28,30 @@ enter the following:
 
    Change the values for following fields:
 
-   * `id` -- The unique ID for the extension. See [this documentation][package-json-id].
+   * `id` -- The unique ID for the extension. See [this documentation][package-json].
    * `title` -- The name of the extension, to be displayed in the Firefox UI.
    * `description` -- The description of the extension, to be displayed in the
      Firefox UI.
    * `version` -- The version.
-   * `creator` -- The name of the creator, to be displayed in the Firefox UI.
+   * `author` -- The name of the creator, to be displayed in the Firefox UI.
 
-   See the Mozilla [Add-on package.json documenation][package-json].
+   See the Mozilla [Add-on package.json documentation][package-json].
 
 3. Edit the index.js file. Set the `gDomain` property to match the domain(s)
-   your screen-sharing extension supports.
+   your screen-sharing extension supports. Set this to an array of one or more strings.
+
+   Use an asterisk at the beginning of the string to match multiple subdomains. For example,
+   the following `gDomain` values match pages at `https://example.com/bar` and
+   `https://foo.example.com/bar`:
+
+       ['*.example.com']
+       ['*.example.com', '*.another-domain.com']
+
+   Omit the asterisk at the beginning of the string to match a specific subdomain. For example,
+   the following `gDomain` values match `https://foo.example.com/bar` but not `https://example.com/bar`:
+
+       ['foo.example.com']
+       ['foo.example.com', '*.another-domain.com']
 
 4. In the terminal, navigate to the firefox/ScreenSharing directory. Then package the extension
    by running the following on the command line:
@@ -110,18 +123,6 @@ Install your extension in one of these ways:
 
 * [add-on-sdk][add-on-sdk] -- Mozilla add-on SDK documentation.
 
-[ot]: http://tokbox.com/opentok/libraries/client/js/
-[whitelist]: https://wiki.mozilla.org/Screensharing
-[npm]: https://nodejs.org/en/download/
-[jpm]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
-[package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
-[package-json-id]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json#id
-[add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
-[add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
-[add-on-sdk]: https://developer.mozilla.org/en-US/Add-ons/SDK
-[mozilla-add-on-hub]: https://addons.mozilla.org/en-US/developers/
-[extension-signing]: https://wiki.mozilla.org/Add-ons/Extension_Signing
-
 ## Using the extension with OpenTok.js
 
 To publish a screen:
@@ -148,6 +149,16 @@ var publisher = OT.initPublisher('target-element-id', {
 
 See the [OpenTok.js screen-sharing documentation][ot-screensharing].
 
+[ot]: http://tokbox.com/opentok/libraries/client/js/
+[whitelist]: https://wiki.mozilla.org/Screensharing
+[npm]: https://nodejs.org/en/download/
+[jpm]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+[package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
+[add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
+[add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
+[add-on-sdk]: https://developer.mozilla.org/en-US/Add-ons/SDK
+[mozilla-add-on-hub]: https://addons.mozilla.org/en-US/developers/
+[extension-signing]: https://wiki.mozilla.org/Add-ons/Extension_Signing
 [ot-screensharing]: https://tokbox.com/opentok/tutorials/screen-sharing/js/
 
 ## License

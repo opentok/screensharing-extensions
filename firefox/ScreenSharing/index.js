@@ -5,7 +5,7 @@ var gDomains = ['*.example.com'];
 
 exports.main = function (options) {
 
-  if (options.loadReason === 'install' || options.loadReason === 'enable') {
+  if (options.loadReason !== 'startup') {
     var curPrefs = prefsService.get(allowDomainsPrefKey).replace(/\s/g, '').split(',');
 
     gDomains.forEach(function(domain){
@@ -19,7 +19,7 @@ exports.main = function (options) {
 };
 
 exports.onUnload = function (reason) {
-  if (reason === 'uninstall' || options.loadReason === 'disable') {
+  if (reason === 'uninstall' || reason === 'disable') {
     gDomains.forEach(function(domain){
       var curPref = prefsService.get(allowDomainsPrefKey);
       var newPref = curPref.split(',').filter((pref) => pref.trim() != domain).join(',');
@@ -30,6 +30,6 @@ exports.onUnload = function (reason) {
 };
 
 pageMod.PageMod({
-  include: gDomains,
+  include: gDomains.map(domain => domain[0] === '*' ? domain : `https://${domain}/*`),
   contentScript: 'unsafeWindow.OTScreenSharing = cloneInto({}, unsafeWindow);'
 });
