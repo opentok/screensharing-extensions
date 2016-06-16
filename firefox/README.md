@@ -53,6 +53,9 @@ enter the following:
        ['foo.example.com']
        ['foo.example.com', '*.another-domain.com']
 
+   Do _not_ include the protocol, `'https://'`, in the `gDomain` strings. And do _not_ include an
+   asterisk before a _subdomain_ (as in `['*.foo.example.com’]`).
+
 4. In the terminal, navigate to the firefox/ScreenSharing directory. Then package the extension
    by running the following on the command line:
 
