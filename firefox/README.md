@@ -15,7 +15,7 @@ OpenTok 2.8.0 or later is required for this version of the extension.
 ## Prerequisites for building your extension
 
 To build your screen-sharing extension for Firefox, you need to [install Node and Node Package
-Manager][npm] (npm). Then use npm to install the [jpm](jpm) package. In a command-line terminal,
+Manager][npm] (npm). Then use npm to install the [jpm][jpm] package. In a command-line terminal,
 enter the following:
 
     npm install jpm --global
