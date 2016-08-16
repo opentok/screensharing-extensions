@@ -34,6 +34,8 @@ enter the following:
      Firefox UI.
    * `version` -- The version.
    * `author` -- The name of the creator, to be displayed in the Firefox UI.
+   * `private-browsing` -- Set this to `false` if you want to disable the extension
+     in [private browsing mode][private-browsing].
 
    See the Mozilla [Add-on package.json documentation][package-json].
 
@@ -156,6 +158,7 @@ See the [OpenTok.js screen-sharing documentation][ot-screensharing].
 [whitelist]: https://wiki.mozilla.org/Screensharing
 [npm]: https://nodejs.org/en/download/
 [jpm]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+[private-browsing]: https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history
 [package-json]: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/package_json
 [add-on-sdk]: https://addons.mozilla.org/en-US/developers/docs/sdk/latest
 [add-ons]: https://addons.mozilla.org/en-US/firefox/extensions/
