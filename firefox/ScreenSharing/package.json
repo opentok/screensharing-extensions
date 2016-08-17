@@ -9,6 +9,9 @@
     "firefox": ">=38.0a1",
     "fennec": ">=38.0a1"
   },
+  "permissions": {
+    "private-browsing": true
+   },
   "license": "MIT",
   "keywords": [
     "jetpack"
