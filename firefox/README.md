@@ -46,14 +46,14 @@ enter the following:
    the following `gDomain` values match pages at `https://example.com/bar` and
    `https://foo.example.com/bar`:
 
-       ['*.example.com']
-       ['*.example.com', '*.another-domain.com']
+         ['*.example.com']
+         ['*.example.com', '*.another-domain.com']
 
    Omit the asterisk at the beginning of the string to match a specific subdomain. For example,
    the following `gDomain` values match `https://foo.example.com/bar` but not `https://example.com/bar`:
 
-       ['foo.example.com']
-       ['foo.example.com', '*.another-domain.com']
+         ['foo.example.com']
+         ['foo.example.com', '*.another-domain.com']
 
    Do _not_ include the protocol, `'https://'`, in the `gDomain` strings. And do _not_ include an
    asterisk before a _subdomain_ (as in `['*.foo.example.com’]`).
