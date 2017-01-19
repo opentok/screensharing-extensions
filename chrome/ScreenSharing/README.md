@@ -28,7 +28,7 @@ See the following sections for testing and deploying your extension.
 
 ## Testing your unpacked extension
 
-Follow the instructions in the [Chrome extension documentation on loading and unpacked
+Open chrome://extensions and drag the ScreenSharing directory onto the page, or click 'Load unpacked extension...'. For more information see [Chrome's documentation on loading unpacked
 extensions][load-unpacked].
 
 [load-unpacked]: https://developer.chrome.com/extensions/getstarted#unpacked
