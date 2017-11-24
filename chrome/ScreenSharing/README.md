@@ -43,7 +43,7 @@ extensions][load-unpacked].
    * `sessionId` -- An OpenTok session ID
    * `token` -- A valid token for the OpenTok session
    * `extensionId` -- The ID of your screen-sharing extension. You can get the ID
-     of the extension in the chrome://extensions page. (It looks like
+     of the extension in the chrome://extensions page after enabling `Developer mode` in the top-right. (It looks like
      `ffngmcfincpecmcgfdpacbdbdlfeeokh`.)
 
 3. In Chrome, navigate to the screensharing-test.html URL on your server. Be sure to load
