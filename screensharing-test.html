@@ -2,6 +2,7 @@
 <body>
   <button onclick="javascript:screenshare();" disabled id="shareBtn">Share your screen</button>
   <div id="camera-publisher"></div>
+  <div id="screen-publisher"></div>
   <div id="camera-subscriber"></div>
   <div id="screen-subscriber"></div>
   <script src="//static.opentok.com/v2/js/opentok.js"></script>
@@ -70,9 +71,8 @@
         } else {
           // Screen sharing is available. Publish the screen.
           // Create an element, but do not display it in the HTML DOM:
-          var screenContainerElement = document.createElement('div');
           var screenSharingPublisher = OT.initPublisher(
-            screenContainerElement,
+            'screen-publisher',
             { videoSource : 'screen' },
             function(error) {
               if (error) {
