@@ -1,7 +1,7 @@
 ﻿// this background script is used to invoke desktopCapture API
 // to capture screen-MediaStream.
 
-var session = ['screen', 'window'];
+var session = ['screen', 'window', 'tab'];
 
 function getSourceID(sender, callback) {
   // as related in https://code.google.com/p/chromium/issues/detail?id=413602 and https://code.google.com/p/chromium/issues/detail?id=425344 :
