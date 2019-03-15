@@ -1,7 +1,11 @@
-Screen Sharing Extension for Chrome
-===================================
+Screen Sharing Extension for Opera and Chrome
+=============================================
 
 This extension allows you to use the screen sharing support in Chrome with the [OpenTok.js][ot] client library.
+
+**Important:** Chrome 72+ no longer requires an extension for screen sharing. The browser prompts
+the end user for access to the screen, as it would for access to the camera. The extension in this
+repo is only included to support Opera and older versions of Chrome.
 
 This is a variation of [the extension][mkext] created by [Muaz Khan][mkgh] with some tweaks to make it more suitable for use with the OpenTok API.
 
