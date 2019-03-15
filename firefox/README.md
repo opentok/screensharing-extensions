@@ -1,14 +1,15 @@
 Screen Sharing Extension for Firefox
 ====================================
 
-This extension allows you to use the screen-sharing support with the [OpenTok.js][ot]
-client library in older versions of Firefox.
+**Important:** The Firefox screen-sharing extension in this repo is no longer supported in
+OpenTok, which does not support versions of Firefox that require a screen-sharing extension.
+As of Firefox 52, an extension (or whitelist listing) is no longer needed for screen sharing.
+Firefox prompts the end user for access to a screen, window, or application, as it would for
+access to the camera. For more information, see
+[this Mozilla blog post](https://wiki.mozilla.org/Screensharing).
 
-**Important:** As of Firefox 52, an extension (or whitelist listing) is no longer needed
-for screen sharing. Firefox prompts the end user for access to a screen, window, or
-application, as it would for access to the camera. For more information, see
-[this Mozilla blog post](https://wiki.mozilla.org/Screensharing). The Firefox extension
-in this repo is only included to support older versions of Firefox.
+This extension allows you to use the screen-sharing support with older versions of the
+[OpenTok.js][ot] client library and older versions of Firefox.
 
 Note: Instead of using a Firefox extension for screen sharing, you can have Mozilla add your domain
 to the browser's screen-sharing whitelist. See [this Mozilla.org page][whitelist] for details.
