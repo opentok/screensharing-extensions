@@ -1,14 +1,14 @@
 screensharing-extensions
 ========================
 
-This project includes sample code for developing screen-sharing extensions for Opera and
-older versions of Chrome (71 and lower). These extensions allow you to use screen-sharing
+This project includes sample code for developing screen-sharing extensions for older versions
+of of Chrome (71 and lower) and Opera (58 and lower). These extensions allow you to use screen-sharing
 support in Opera and older versions of Chrome with the [OpenTok.js][1] library.
 
-**Important:** In Chrome 72+ and Firefox 52+, an extension (or whitelist listing) is no longer
+**Important:** In Chrome 72+, Firefox 52+, and Opera 59+, an extension (or whitelist listing) is no longer
 needed for screen sharing. The browser prompts the end user for access to the screen, as it would
-for access to the camera. The extension in this repo is only included to support Opera and
-older versions of Chrome.
+for access to the camera. The extension in this repo is only included to support
+older versions of Chrome and Opera.
 
 For more information, see:
 
