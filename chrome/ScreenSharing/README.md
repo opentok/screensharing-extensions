@@ -9,7 +9,9 @@ repo is only included to support Opera and older versions of Chrome.
 
 This is a variation of [the extension][mkext] created by [Muaz Khan][mkgh] with some tweaks to make it more suitable for use with the OpenTok API.
 
-This is version 2 of the extension. With version 2, the client can use the extension immediately after installing it using the inline installation method, without reloading the page. When calling the `OT.registerScreenSharingExtension()` method (see below), you must now pass in the version number, 2.
+This is version 2 of the extension. With version 2, the client can use the extension immediately after installing it using the [Inline Installation][inline] method, without reloading the page. When calling the `OT.registerScreenSharingExtension()` method (see below), you must now pass in the version number, 2.
+
+(Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 ## Customizing the extension for your website
 
@@ -71,7 +73,7 @@ in the Chrome Web Store.
 See the [Chrome documentation on publishing your app][publish] for details on publishing your extension in the Chrome Web Store.
 
 You can use the [Chrome inline installation][inline] to initiate installation of your extension
-"inline" from your site.
+"inline" from your site. (Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 In your app, you need to register the ID of the extension using the
 <code>OT.registerScreenSharingExtension()</code> method (defined in the OpenTok.js library).
@@ -79,6 +81,7 @@ In your app, you need to register the ID of the extension using the
 
 [publish]: https://developer.chrome.com/webstore/publish
 [inline]: https://developer.chrome.com/webstore/inline_installation
+[inline-deprecated-faq]: https://developer.chrome.com/extensions/inline_faq
 
 ## How to use with OpenTok.js?
 
@@ -113,6 +116,7 @@ OT.checkScreenSharingCapability(function(response) {
 ```
 
 If you are using [Inline Installation][inline] their are additional APIs you can use.
+(Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 To publish a screen:
 
