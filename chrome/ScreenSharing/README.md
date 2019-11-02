@@ -7,7 +7,7 @@ This is a variation of [the extension][mkext] created by [Muaz Khan][mkgh] with 
 
 This is version 2 of the extension. With version 2, the client can use the extension immediately after installing it using the [Inline Installation][inline] method, without reloading the page. When calling the `OT.registerScreenSharingExtension()` method (see below), you must now pass in the version number, 2.
 
-(Important: As of 06/12/2018, [inline installation is deprecated][inline-deprecated-faq].)
+(Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 ## Customizing the extension for your website
 
@@ -69,7 +69,7 @@ in the Chrome Web Store.
 See the [Chrome documentation on publishing your app][publish] for details on publishing your extension in the Chrome Web Store.
 
 You can use the [Chrome inline installation][inline] to initiate installation of your extension
-"inline" from your site. (Important: As of 06/12/2018, [inline installation is deprecated][inline-deprecated-faq].)
+"inline" from your site. (Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 In your app, you need to register the ID of the extension using the
 <code>OT.registerScreenSharingExtension()</code> method (defined in the OpenTok.js library).
