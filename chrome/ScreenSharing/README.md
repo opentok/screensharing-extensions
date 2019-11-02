@@ -112,7 +112,7 @@ OT.checkScreenSharingCapability(function(response) {
 ```
 
 If you are using [Inline Installation][inline] their are additional APIs you can use.
-(Important: As of 06/12/2018, [inline installation is deprecated][inline-deprecated-faq].)
+(Important: As of June 12, 2018, [inline installation is deprecated][inline-deprecated-faq].)
 
 To publish a screen:
 
